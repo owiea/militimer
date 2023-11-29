@@ -46,7 +46,7 @@ function startTimer() {
         const v = new Date(curr);
         document.querySelector("#main > div").innerText = v.getHours() + ":" + v.getMinutes() + ":" + v.getSeconds() + ":" + v.getMilliseconds();
         if (curr - 946665000000 === 50) {
-            vibrateDevice(100);
+            navigator.vibrate(500)
         }
     }, 1);
 }
@@ -54,14 +54,6 @@ function startTimer() {
 function stopTimer() {
     clearInterval(intervalId);
     //alert("Timer stopped");
-}
-
-function vibrateDevice(duration) {
-    try {
-        navigator.vibrate(duration);
-    } catch (error) {
-        console.error("Vibration not supported:", error);
-    }
 }
 
 // Prevent right-click menu
