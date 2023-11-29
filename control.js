@@ -45,8 +45,8 @@ function startTimer() {
         curr+=10;
         const v = new Date(curr);
         z = [500,10,500]
-        document.querySelector("#main").innerText = z
-        document.querySelector("#main > div").innerText = v.getHours() + ":" + v.getMinutes() + ":" + v.getSeconds() + ":" + v.getMilliseconds()/10
+        document.querySelector("#main1").innerText = z
+        document.querySelector("#timer").innerText = v.getHours() + ":" + v.getMinutes() + ":" + v.getSeconds() + ":" + v.getMilliseconds()/10
         if (curr - 946665000000 === 25) {
             navigator.vibrate(z)
         }
