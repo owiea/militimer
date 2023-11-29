@@ -46,48 +46,25 @@ function startTimer() {
         const v = new Date(curr);
         document.querySelector("#main > div").innerText = v.getHours() + ":" + v.getMinutes() + ":" + v.getSeconds() + ":" + v.getMilliseconds();
         if (curr - 946665000000 === 50) {
-            ontr()
+            vibrateDevice(100);
         }
     }, 1);
 }
 
 function stopTimer() {
     clearInterval(intervalId);
+    //alert("Timer stopped");
 }
 
+function vibrateDevice(duration) {
+    try {
+        navigator.vibrate(duration);
+    } catch (error) {
+        console.error("Vibration not supported:", error);
+    }
+}
+
+// Prevent right-click menu
 document.addEventListener("contextmenu", function(e) {
     e.preventDefault();
 });
-
-
-
-function ontr(){
-    if (curr - 946665000000 === 50) {
-        // Check if the browser supports the Notifications API
-        if ("Notification" in window) {
-            // Check if the user has granted permission for notifications
-            if (Notification.permission === "granted") {
-                // Create a notification
-                const notification = new Notification("Notification Title", {
-                    body: "Notification Body",
-                    icon: "path/to/icon.png" // Optional: You can provide a path to an image for the notification
-                });
-    
-                // Optional: Add an event listener for when the user clicks on the notification
-                notification.addEventListener("click", () => {
-                    console.log("Notification clicked");
-                });
-            } else if (Notification.permission !== "denied") {
-                // Request permission from the user
-                Notification.requestPermission().then(permission => {
-                    if (permission === "granted") {
-                        // Now you can create the notification
-                        // (You might want to do this in response to a user action to avoid being considered spammy)
-                    }
-                });
-            }
-        } else {
-            console.log("Notifications not supported in this browser");
-        }
-    }
-}
