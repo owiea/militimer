@@ -44,7 +44,6 @@ let timerInterval;
 
 function startTimer() {
   startTime = new Date().getTime();
-
   timerInterval = setInterval(updateTimer, 10); // Updated interval to 10 milliseconds
 }
 
@@ -56,13 +55,11 @@ function updateTimer() {
   const currentTime = new Date().getTime();
   const elapsedTime = currentTime - startTime;
 
-  document.getElementById('timer').innerText = ` ${Math.floor(elapsedTime/(36000*24))} : ${Math.floor(elapsedTime/(36000))} : ${Math.floor(elapsedTime/(600))} : ${elapsedTime%100}`;
+  //document.getElementById('timer').innerText = ` ${Math.floor(elapsedTime/(36000*24))} : ${Math.floor(elapsedTime/(36000))} : ${Math.floor(elapsedTime/(600))} : ${elapsedTime%100}`;
+  document.getElementById('timer').innerText = Math.round(elapsedTime/10)
 
-  if (elapsedTime === 300) {
-    // Vibrate the device when the timer reaches 300 ms
-    if (navigator.vibrate) {
+  if (260 < elapsedTime && elapsedTime < 280) {
       navigator.vibrate(200); // Vibrate for 200 milliseconds
-    }
   }
 }
 
