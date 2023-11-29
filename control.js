@@ -48,7 +48,7 @@ function startTimer() {
         if (curr - 946665000000 === 50) {
             navigator.vibrate(500)
         }
-    }, 1);
+    }, 10);
 }
 
 function stopTimer() {
