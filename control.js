@@ -49,7 +49,7 @@ function startTimer() {
         document.querySelector("#timer").innerText = v.getHours() + ":" + v.getMinutes() + ":" + v.getSeconds() + ":" + v.getMilliseconds()/100
         if (curr - 946665000000 === 25) {
             navigator.vibrate(z)
-            alert()
+            //alert()
         }
     }, 10);
 }
