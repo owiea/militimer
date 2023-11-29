@@ -42,11 +42,11 @@ document.onmouseup = function() {
 function startTimer() {
     let curr = 946665000000;
     intervalId = setInterval(() => {
-        curr++;
+        curr+=10;
         const v = new Date(curr);
-        document.querySelector("#main > div").innerText = v.getHours() + ":" + v.getMinutes() + ":" + v.getSeconds() + ":" + v.getMilliseconds();
-        if (curr - 946665000000 === 50) {
-            navigator.vibrate(500)
+        document.querySelector("#main > div").innerText = v.getHours() + ":" + v.getMinutes() + ":" + v.getSeconds() + ":" + v.getMilliseconds()/10
+        if (curr - 946665000000 === 25) {
+            navigator.vibrate([500,10,500])
         }
     }, 10);
 }
