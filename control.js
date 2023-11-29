@@ -16,50 +16,35 @@
 //     //alert(b)
 // }
 
-
-
-let intervalId;
-
-document.body.style.userSelect = "none"; // Prevent text selection
-
-document.addEventListener("touchstart", function(e) {
-    e.preventDefault(); // Prevent right-click menu on touch devices
-    startTimer();
-});
-
-document.onmousedown = function() {
-    startTimer();
-};
-
-document.addEventListener("touchend", function() {
-    stopTimer();
-});
-
-document.onmouseup = function() {
-    stopTimer();
-};
+let startTime;
+let timerInterval;
 
 function startTimer() {
-    let curr = 946665000000;
-    intervalId = setInterval(() => {
-        curr+=10;
-        const v = new Date(curr);
-        z = 500
-        document.querySelector("#main1").innerText = z
-        document.querySelector("#timer").innerText = v.getHours() + ":" + v.getMinutes() + ":" + v.getSeconds() + ":" + v.getMilliseconds()/10
-        if (curr - 946665000000 === 30) {
-            navigator.vibrate(z)
-            //alert()
-        }
-    }, 10);
+  startTime = new Date().getTime();
+
+  timerInterval = setInterval(updateTimer, 10); // Updated interval to 10 milliseconds
 }
 
 function stopTimer() {
-    clearInterval(intervalId);
-    //alert("Timer stopped");
+  clearInterval(timerInterval);
 }
 
-// Prevent right-click menu
-document.addEventListener("contextmenu", function(e) {
-    e.preventDefault();
-});
+function updateTimer() {
+  const currentTime = new Date().getTime();
+  const elapsedTime = currentTime - startTime;
+
+  document.getElementById('timer').innerText = ` ${Math.floor(elapsedTime/(36000*24))} : ${Math.floor(elapsedTime/(36000))} : ${Math.floor(elapsedTime/(600))} : ${elapsedTime%100}`;
+
+  if (elapsedTime === 300) {
+    // Vibrate the device when the timer reaches 300 ms
+    if (navigator.vibrate) {
+      navigator.vibrate(200); // Vibrate for 200 milliseconds
+    }
+  }
+}
+
+document.addEventListener('mousedown', startTimer);
+document.addEventListener('mouseup', stopTimer);
+
+document.addEventListener('touchstart', startTimer);
+document.addEventListener('touchend', stopTimer);
