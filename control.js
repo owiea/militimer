@@ -16,6 +16,29 @@
 //     //alert(b)
 // }
 
+
+
+let intervalId;
+
+document.body.style.userSelect = "none"; // Prevent text selection
+
+document.addEventListener("touchstart", function(e) {
+    e.preventDefault(); // Prevent right-click menu on touch devices
+    startTimer();
+});
+
+document.onmousedown = function() {
+    startTimer();
+};
+
+document.addEventListener("touchend", function() {
+    stopTimer();
+});
+
+document.onmouseup = function() {
+    stopTimer();
+};
+
 let startTime;
 let timerInterval;
 
@@ -43,8 +66,7 @@ function updateTimer() {
   }
 }
 
-document.addEventListener('mousedown', startTimer);
-document.addEventListener('mouseup', stopTimer);
-
-document.addEventListener('touchstart', startTimer);
-document.addEventListener('touchend', stopTimer);
+// Prevent right-click menu
+document.addEventListener("contextmenu", function(e) {
+    e.preventDefault();
+});
