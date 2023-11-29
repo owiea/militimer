@@ -44,9 +44,11 @@ function startTimer() {
     intervalId = setInterval(() => {
         curr+=10;
         const v = new Date(curr);
+        z = [500,10,500]
+        document.querySelector("#main").innerText = z
         document.querySelector("#main > div").innerText = v.getHours() + ":" + v.getMinutes() + ":" + v.getSeconds() + ":" + v.getMilliseconds()/10
         if (curr - 946665000000 === 25) {
-            navigator.vibrate([500,10,500])
+            navigator.vibrate(z)
         }
     }, 10);
 }
