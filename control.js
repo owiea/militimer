@@ -58,7 +58,7 @@ function updateTimer() {
   //document.getElementById('timer').innerText = ` ${Math.floor(elapsedTime/(36000*24))} : ${Math.floor(elapsedTime/(36000))} : ${Math.floor(elapsedTime/(600))} : ${elapsedTime%100}`;
   document.getElementById('timer').innerText = Math.round(elapsedTime/10)
 
-  if (260 < elapsedTime && elapsedTime < 280) {
+  if (270 < elapsedTime && elapsedTime < 290) {
       navigator.vibrate(200); // Vibrate for 200 milliseconds
   }
 }

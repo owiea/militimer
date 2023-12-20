@@ -1,0 +1,15 @@
+curl 'https://api.teeg.cloud/guest?version=20210722' \
+  -H 'authority: api.teeg.cloud' \
+  -H 'accept: */*' \
+  -H 'accept-language: en-US,en;q=0.9' \
+  -H 'authorization: Bearer eyJhbGciOiJSUzI1NiIsImtpZCI6Imp0X1htek9Od2NqTlg0VFhjTjRvMUhNM2k5aUtpczlpSGgxYTllcEdENGsiLCJ0eXAiOiJKV1QifQ.eyJpcEFkZHJlc3MiOiIyNDA1OjIwMTo1YzBhOmEyMmM6NDc2OmRhNTpiNzMyOjZkZTAiLCJvaWQiOiIyYjJkY2NmYi0xYTQ0LTQzMjQtYWQ1OC1jN2NjYTkwOWZmZTYiLCJzdWIiOiIyYjJkY2NmYi0xYTQ0LTQzMjQtYWQ1OC1jN2NjYTkwOWZmZTYiLCJlbWFpbHMiOlsic2lkZGhhbnRiYXBuYUBvdXRsb29rLmNvbSJdLCJ0aWQiOiJhZjIxZTA1Ni0wYTIxLTRkODMtYjVkZC00NGM0MzlmYThmMzAiLCJub25jZSI6IjU4Njg2ZjY3LTdkN2ItNDBkNS1hNDE0LTAxN2M5ZjhhOWVhOCIsInNjcCI6ImFsbC1hcGlzIiwiYXpwIjoiY2EwZTQ4NjgtMTc3Yi00OWQyLThjNjMtZjEwNDRlM2VkYzYzIiwidmVyIjoiMS4wIiwiaWF0IjoxNzAyODgzMTQzLCJhdWQiOiI2ZjcyYzI3NS01MWI5LTQ2M2ItODQxMS0zYjA0OTM2Y2UxODkiLCJleHAiOjE3MDI4ODQwNDMsImlzcyI6Imh0dHBzOi8vaWRlbnRpdHkudGVlZy5jbG91ZC9hZjIxZTA1Ni0wYTIxLTRkODMtYjVkZC00NGM0MzlmYThmMzAvdjIuMC8iLCJuYmYiOjE3MDI4ODMxNDN9.fS58vpHeYAi1CUEixjqPl9GhxcOHspz3kMJDhgOApeBrXNk_mQGIPD786a2BcwW3Wq76rqAOncITxgURxX4p1Rt9zEqkQXVzwrO8-U4XIV8YHJuPlZge0z49Gea4m1Q-0cj6uB3_tjoLVP-PIXHskR7RZCnZrznQS_UOvVwXmDdarXOYCeaIdFHXMGp3ZPBvJcWnr5YRtP5stvTn-QKKvdECzQEEHMbXOrbfRCdRtnZrvX1SGjg4bpf9Hd08BL2NKIrqnVTY1hl7GjO50VoChKkZbSBHhbbOf9O9PJ-ZfmcQgYJC7JY3q8HJuGvAWbCOMTYwqtQWa0asubRKIv6TGQ' \
+  -H 'cache-control: no-cache' \
+  -H 'origin: https://portal.timezonegames.com' \
+  -H 'pragma: no-cache' \
+  -H 'referer: https://portal.timezonegames.com/' \
+  -H 'sec-fetch-dest: empty' \
+  -H 'sec-fetch-mode: cors' \
+  -H 'sec-fetch-site: cross-site' \
+  -H 'user-agent: Mozilla/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.6 Mobile/15E148 Safari/604.1 Edg/120.0.0.0' \
+  -H 'x-venue;' \
+  --compressed
