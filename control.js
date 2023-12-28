@@ -1,69 +1,65 @@
-// document.onmousedown = function(){
-//     curr = 946665000000
-//     b = 0
-//     a = setInterval(() => {
-//         curr ++
-//         v = new Date(curr)
-//         document.querySelector("#main > div").innerText = v.getHours() + ":" + v.getMinutes() + ":" + v.getSeconds() + ":" + v.getMilliseconds()
-//         if (curr - 946665000000 == 50){
-//             navigator.vibrate(100)
-//         }
-//     }, 1)
-// }
+document.addEventListener("DOMContentLoaded", function() {
+    let intervalId;
+    let tti = 50;
+    document.body.style.userSelect = "none"; // Prevent text selection
 
-// document.onmouseup = function(){
-//     clearInterval(a)
-//     //alert(b)
-// }
+    document.addEventListener("touchstart", function(e) {
+        e.preventDefault(); // Prevent right-click menu on touch devices
+        if (!isExcludedElement(e.target)) {
+            startTimer();
+        }
+    });
 
+    document.onmousedown = function(e) {
+        if (!isExcludedElement(e.target)) {
+            startTimer();
+        }
+    };
 
+    document.addEventListener("touchend", function() {
+        stopTimer();
+    });
 
-let intervalId;
+    document.onmouseup = function() {
+        stopTimer();
+    };
 
-document.body.style.userSelect = "none"; // Prevent text selection
+    document.getElementById("onc").addEventListener("click", () => {
+        tti = parseFloat(document.getElementById("tti").value);
+    });
 
-document.addEventListener("touchstart", function(e) {
-    e.preventDefault(); // Prevent right-click menu on touch devices
-    startTimer();
-});
+    function isExcludedElement(target) {
+        return (
+            target.id === "tti" ||
+            target.id === "onc" ||
+            target.parentElement.id === "inputf"
+        );
+    }
 
-document.onmousedown = function() {
-    startTimer();
-};
+    let startTime;
+    let timerInterval;
 
-document.addEventListener("touchend", function() {
-    stopTimer();
-});
+    function startTimer() {
+        startTime = new Date().getTime();
+        timerInterval = setInterval(() => {updateTimer(tti)}, 10);
+    }
 
-document.onmouseup = function() {
-    stopTimer();
-};
+    function stopTimer() {
+        clearInterval(timerInterval);
+    }
 
-let startTime;
-let timerInterval;
+    function updateTimer(t = 0) {
+        const currentTime = new Date().getTime();
+        const elapsedTime = currentTime - startTime;
+        document.getElementById('timer').innerText = Math.round(elapsedTime/10)
 
-function startTimer() {
-  startTime = new Date().getTime();
-  timerInterval = setInterval(updateTimer, 10); // Updated interval to 10 milliseconds
-}
+        if (( t*10 - 230) < elapsedTime && elapsedTime < ( t*10-210)) {
+            //alert(tti);
+            navigator.vibrate(200);
+        }
+    }
 
-function stopTimer() {
-  clearInterval(timerInterval);
-}
-
-function updateTimer() {
-  const currentTime = new Date().getTime();
-  const elapsedTime = currentTime - startTime;
-
-  //document.getElementById('timer').innerText = ` ${Math.floor(elapsedTime/(36000*24))} : ${Math.floor(elapsedTime/(36000))} : ${Math.floor(elapsedTime/(600))} : ${elapsedTime%100}`;
-  document.getElementById('timer').innerText = Math.round(elapsedTime/10)
-
-  if (270 < elapsedTime && elapsedTime < 290) {
-      navigator.vibrate(200); // Vibrate for 200 milliseconds
-  }
-}
-
-// Prevent right-click menu
-document.addEventListener("contextmenu", function(e) {
-    e.preventDefault();
+    document.addEventListener("contextmenu", function(e) {
+        e.preventDefault();
+    });
 });
